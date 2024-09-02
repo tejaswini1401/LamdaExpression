@@ -5,6 +5,9 @@ public class MathOperationApp {
 	@FunctionalInterface
 	interface MathsOperations{
 		double operate(double a, double b);
+		static void printResult(double a, double b, String function,MathsOperations obj) {
+			System.out.println("Result of "+function+" is "+ obj.operate(a, b));
+		}
 	}
 
 	public static void main(String[] args) {
@@ -13,10 +16,12 @@ public class MathOperationApp {
 		MathsOperations multiplication = (a,b) ->  a*b;
 		MathsOperations division = (a,b) -> a/b;
 		
-		System.out.println("Addition : " +addition.operate(10, 20));
-		System.out.println("Substarction: "+substraction.operate(40, 30));
-		System.out.println("Multiplication : "+multiplication.operate(10, 20));
-		System.out.println("Division : "+division.operate(10, 2));
+		MathsOperations.printResult(10, 20, "addition",addition);
+		MathsOperations.printResult(30, 20, "substraction",substraction);
+		MathsOperations.printResult(30, 20, "multiplication",multiplication);
+		MathsOperations.printResult(100, 20, "division",division);
+
+
 	}
 
 }
