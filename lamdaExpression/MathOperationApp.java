@@ -1,6 +1,6 @@
 package com.lamdaExpression;
 import java.util.*;
-import java.util.function.Predicate;
+import java.util.function.Function;
 
 public class MathOperationApp {
 
@@ -13,12 +13,11 @@ public class MathOperationApp {
         list.add(41);
         list.add(50);
 
-        Predicate<Integer> isEven = n-> n%2 ==0;
-        
+        Function<Integer, Double> doubleValue = n -> n * 2.0;
+
         list.forEach(n -> {
-            if(isEven.test(n)) {
-            	System.out.println("Even numbers: "+n);
-            }
+            Double doubled = doubleValue.apply(n);
+            System.out.println("Double value: " + doubled);
         });
     }
 }
